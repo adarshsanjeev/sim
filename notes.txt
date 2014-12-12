@@ -1,0 +1,93 @@
+Simulator
+==========
+
+Method of Representation
+-------------------------
+
+Memory
+- Represented by a 2-D char array
+- Sizes [256][]
+- Dynamic
+
+Bus
+- Class
+-- Members
+   int value, current value of bus
+-- No functions
+
+Program Counter
+- Class
+-- Members
+   int value, current address
+-- Functions
+   epc(), copies value to bus.value
+   lpc(), copies bus.value to values
+
+OR Register
+- Class
+-- Members
+   int value, current value
+-- Functions
+   eor(), copies value to bus.value
+   lor(), copies bus.value to values
+   ror(), resets value to zero
+
+AR Register
+- Class
+-- Members
+   int value, current value
+-- Functions
+   ear(), copies value to bus.value
+   lar(), copies bus.value to values
+   rar(), resets value to zero
+
+ALU
+- Class
+-- No members
+- First opr value of bus
+- Second opr value of OR
+-- Funtions
+   All individual arithmetic operations of ALU
+- After arithmetic functions are called, flagupdate() is called, which updates the flag register.
+
+FL (Flag Register)
+- Class
+-- Members
+   int u,z,nz,p,m,op,ep
+-- No functions
+
+MAR
+- Class
+- Same def as PC, only different in usage
+
+Stack Pointer
+- Globally declared stack
+- Members of stack
+  int value, value
+  int address, address of the pointer, starting from 255 down to 0
+
+IR/MS
+- Both clubbed together into one class
+-- Members
+   int ir, base addr of current micro instruction
+   int ms, set of micro instructions of current clock cycle
+
+ROM
+- Not necessary
+
+Functioning
+------------
+
+Upon starting sim, reads .sim which is a settings file
+
+First runs a compiler on the program, checking for syntax errors and missing values.
+-Compares each instruction in the program with the list of instruction given.
+-Checks for missing flags,movi being followed by a number etc.
+
+Second copies the file into a 2-D char array (RAM).
+       Also copies memfile into RAM in correct format.
+
+Third takes each instruction, which is called as a function. Each function will call their micro instructions.
+      Depending upon mode, it will print the results after each microins, ins, or after the whole program.
+      Depending upon setting, it will print in hex or decimal.
+
