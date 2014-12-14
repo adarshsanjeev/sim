@@ -7,13 +7,12 @@ Method of Representation
 Memory
 - Represented by a 2-D char array
 - Sizes [256][]
-- Dynamic
 
 Bus
-- Class
--- Members
-   int value, current value of bus
--- No functions
+- Global variable
+  int value, current value of bus
+
+**PC MAR OR AR RG will all be objects of the same class**
 
 Program Counter
 - Class
@@ -42,11 +41,9 @@ AR Register
    rar(), resets value to zero
 
 ALU
-- Class
--- No members
+-Function
 - First opr value of bus
 - Second opr value of OR
--- Funtions
    All individual arithmetic operations of ALU
 - After arithmetic functions are called, flagupdate() is called, which updates the flag register.
 
