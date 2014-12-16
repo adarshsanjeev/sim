@@ -1,16 +1,16 @@
 #ifndef CLASS_H
 #define CLASS_H
 
-extern char RAM[256][1000];
+extern int RAM[256];                              /* To store the compiled code*/
 extern int busval;                                /* Only Bus value */
 
-class reg
+class reg                                         /* Main register class */
 {
  public:
   int val;
-  void e();
-  void l();
-  void r();
+  inline void e();
+  inline void l();
+  inline void r();
 };
 
 class flagr
@@ -23,7 +23,7 @@ class flagr
   int m;
   int op;
   int ep;
-  void flagupdate(int);     /* Parameter is result of ALU opr */
+  inline void flagupdate(int);                /* Parameter is result of ALU opr */
 };
 
 class stackpointer
@@ -44,7 +44,9 @@ extern class stackpointer* sp;
 
 void initsim();                         /* To initialise the file */
 void readsettings();                   /* To read from .settings file */
-void cfile();                       /* To compile and copy the program */
-void cmemfile();                 /* To compile and read the memfile */
+int cfile();                       /* To compile and copy the program */
+int cmemfile();                 /* To compile and read the memfile */
 
+void printreg();                /* To print the contents of the registers */
+void printmem();                /* To print the contents of the memory */
 #endif

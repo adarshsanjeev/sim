@@ -2,13 +2,13 @@
 #include"class.h"
 
 using std::cin;
-using std::cout;
+using std::cout;         // Necessary parts only
 using std::endl;
 
-void ALU(char);
+void ALU(char);          // Parameter is the operand
 
-int main()
+int main(int argc,char *argv[])
 {
-  initsim();
+  initsim();                // To load starting values and read .seeting file
   return 0;
 }

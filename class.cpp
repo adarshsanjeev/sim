@@ -1,25 +1,29 @@
+#include<fstream>
 #include<iostream>
-#include"class.h"
+#include<string>
 #include<stdlib.h>
+#include"class.h"
 
 using std::cin;
 using std::cout;
 using std::endl;
+using std::ifstream;
+using std::ofstream;
+using std::fstream;
 
-char RAM[256][1000];
+int RAM[256][1000];
 int busval;
 
-class reg pc;
+class reg PC;
 class reg OR;
 class reg AR;
-class reg mar;
-class reg rg[12];
-class flagr flag;
+class reg MAr;
+class reg RG[12];
+class flagr FL;
 class stackpointer* sp;
 
 void initsim()
 {
-  // readsettings(); To be added
   busval=0;
   pc.val=0;
   OR.val=0;
@@ -38,7 +42,6 @@ void initsim()
   sp->val=0;
   sp->addr=255;
   sp->link=NULL;
-  // cfile();       To be added
-  // cmemfile();           To be added
-  // cout<<"Initialied..."<<endl; For debugging
+  // readsettings();            //To read .settings
+  cout<<"Initialised..."<<endl; // For debugging
 }
