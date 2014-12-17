@@ -88,16 +88,3 @@ Third takes each instruction, which is called as a function. Each function will 
       Depending upon mode, it will print the results after each microins, ins, or after the whole program.
       Depending upon setting, it will print in hex or decimal.
 
-Implementation Plan
---------------------
-
-Order of implementation
-
-1) BASE
-
-   All functions except anything involving SP
-   Capability to read a program file (no compilation) and run it. (No memory file)
-   Flag register and ALU
-   Print output
-
-   

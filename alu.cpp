@@ -1,7 +1,20 @@
 #include<iostream>
 #include"class.h"
 
-int ALU(char opr)        //Function to perform ALU oprations. + Sum - Min | OR & And ^ Xor ~ Cmp
+/* ALU function:
+  +=add
+  -=sub
+  &=and
+  |=or
+  ^=xor
+  ~=cmp
+  0=pass0
+
+  IMPORTANT NOTE: AR.l() will never be used! ALU function automatically writes the ans to AR where necessary!
+
+*/
+
+int ALU(char opr)
 {
   int ans;
   switch(opr)
@@ -39,6 +52,12 @@ int ALU(char opr)        //Function to perform ALU oprations. + Sum - Min | OR &
     case '~':
       {
 	ans=busval-OR.val;
+	break;
+      }
+    case '0':
+      {
+	ans=busval;
+	AR.val=ans;
 	break;
       }
     default:

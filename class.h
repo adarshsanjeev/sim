@@ -9,6 +9,7 @@ using std::ifstream;
 using std::ofstream;
 using std::fstream;
 
+extern int CP;                                    /* Clock pulse number */
 extern int RAM[256];                              /* To store the compiled code*/
 extern int busval;                                /* Only Bus value */
 
@@ -50,16 +51,18 @@ extern class reg RG[12];
 extern class flagr FLAG;
 extern class stackpointer* SP;
 
-inline void RD(int addr){busval=RAM[MAR.val];}
-inline void WR(int addr){RAM[MAR.val]=busval;}
+inline void RD(){busval=RAM[MAR.val];}
+inline void WR(){RAM[MAR.val]=busval;}
 
 void initsim();                         /* To initialise the file */
-int ALU(char);                           /*Parameter is the operand */
 void readsettings();                   /* To read from .settings file */
 int cfile();                       /* To compile and copy the program */
 int cmemfile();                 /* To compile and read the memfile */
 
 void printreg();                /* To print the contents of the registers */
 void printmem();                /* To print the contents of the memory */
+
+int ALU(char);                     /*Parameter is the operand */
+void rom(int);                  /* ROM function call */
 
 #endif

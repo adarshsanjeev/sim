@@ -4,6 +4,7 @@
 
 int RAM[256];
 int busval;
+int CP;
 
 class reg PC;
 class reg OR;
@@ -15,6 +16,7 @@ class stackpointer* SP;
 
 void initsim()
 {
+  CP=0;
   busval=0;
   PC.val=0;
   OR.val=0;
