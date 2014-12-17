@@ -1,5 +1,5 @@
 TARGET=sim
-OBJECT=main.o class.o
+OBJECT=main.o class.o alu.o
 
 $(TARGET): $(OBJECT)
 	clang++ -o $(TARGET) $(OBJECT)
@@ -8,6 +8,7 @@ $(OBJECT): %.o: %.cpp
 
 class.o: class.h
 main.o: class.h
+alu.o: class.h
 
 .PHONY: clean
 
